@@ -1,0 +1,23 @@
+// Place all the styles related to the statuses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.layout-transparent {
+  background: image-url("vegetables.jpg") center / cover;
+}
+
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+  color: white;
+}
+
+.mdl-layout__content {
+	margin-top: 100px;
+	background-color: white;
+	padding: 20px 10px;
+}
+
+#hello-message {
+	display: inline-block;
+	margin-right: 20px;
+}

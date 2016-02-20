@@ -1,0 +1,28 @@
+
+<%# content_for :javascript_includes do %>
+  <%#= javascript_include_tag "answer.js" %>
+<%# end %>
+
+
+<%= form_for(@form, url: register_answer_statuses_path, method: :post) do |fb| %>
+
+<p id="hello-message"></p>
+<button id="reset-user-name" class="mdl-button mdl-js-button mdl-button--raised">名前を変更する</button>
+
+  <%= fb.fields_for :statuses do |f| %>
+    <div class="field">
+      <%= f.hidden_field :user, :class => "user-name" %>
+    </div>
+    <div class="field">
+      <%= f.object.question %>
+      <%= f.hidden_field :question %>
+    </div>
+    <div class="field">
+      <%= f.select :answer, @form.answer_selections %>
+      <%#= f.text_field :answer, :class => "mdl-slider mdl-js-slider", :type => "range", :min => "0", :max => "6", :value => "0" %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= fb.submit "とうろくする" , :class => "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+  </div>
+<% end %>

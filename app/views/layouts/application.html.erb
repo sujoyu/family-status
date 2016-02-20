@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FamilyStatus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield :javascript_includes %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+</head>
+<body>
+<div class="layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">みんなの調子</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+      	<%= link_to 'とっぷ', statuses_path, :class => "mdl-navigation__link" %>
+      	<%= link_to '調子をとうろくする', answer_statuses_path, :class => "mdl-navigation__link" %>
+      </nav>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+  <%= yield %>
+  </main>
+  <footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">みんなの調子</div>
+    <ul class="mdl-mini-footer__link-list">
+    </ul>
+  </div>
+</footer>
+</div>
+</body>
+</html>

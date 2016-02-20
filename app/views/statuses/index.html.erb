@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h3>今日のみんなの調子</h3>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric"></th>
+      <% @answer_selections.each do |ans, _| %>
+        <th class="mdl-data-table__cell--non-numeric"><%= ans %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= question %></td>
+        <% @answer_selections.each do |_, ans| %>
+          <td class="mdl-data-table__cell--non-numeric">
+            <% @statuses.select { |status| status.question == question && status.answer == ans }.each do |status| %>
+              <%= status.user %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
