@@ -4,7 +4,7 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = Status.where("created > ?", Date.today).group("user, question").order("created DESC")
+    @statuses = Status.select("user, question, answer, max(created) as created").where("created > ?", Date.today).group("user, question").order("created DESC")
     @users = @statuses.map(&:user).uniq
 
     @questions = Settings.questions
